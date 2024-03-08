@@ -1,0 +1,101 @@
+﻿@model OverlookHotelGestionale.Models.Prenotazione
+@{
+    ViewBag.Title = "NuovaPrenotazione";
+}
+
+<h2>Nuova Prenotazione</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.CodiceFiscale)
+    @Html.EditorFor(model => model.CodiceFiscale)
+    @Html.ValidationMessageFor(model => model.CodiceFiscale)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Cognome)
+    @Html.EditorFor(model => model.Cognome)
+    @Html.ValidationMessageFor(model => model.Cognome)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Nome)
+    @Html.EditorFor(model => model.Nome)
+    @Html.ValidationMessageFor(model => model.Nome)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Citta)
+    @Html.EditorFor(model => model.Citta)
+    @Html.ValidationMessageFor(model => model.Citta)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Provincia)
+    @Html.EditorFor(model => model.Provincia)
+    @Html.ValidationMessageFor(model => model.Provincia)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Email)
+    @Html.EditorFor(model => model.Email)
+    @Html.ValidationMessageFor(model => model.Email)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Telefono)
+    @Html.EditorFor(model => model.Telefono)
+    @Html.ValidationMessageFor(model => model.Telefono)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Cellulare)
+    @Html.EditorFor(model => model.Cellulare)
+    @Html.ValidationMessageFor(model => model.Cellulare)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.IdCamera)
+    <select name="IdCamera">
+        @foreach (var camera in ViewBag.listaCamere)
+        {
+            <option value="@camera.IdCamera">@camera.NumeroCamera</option>
+
+        }
+    </select>
+    @Html.ValidationMessageFor(model => model.IdCamera)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.DataPrenotazione)
+    @Html.EditorFor(model => model.DataPrenotazione, new { htmlAttributes = new { @type = "date" } })
+    @Html.ValidationMessageFor(model => model.DataPrenotazione)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.InizioPeriodoSoggiorno)
+    @Html.EditorFor(model => model.InizioPeriodoSoggiorno, new { htmlAttributes = new { @type = "date" } })
+    @Html.ValidationMessageFor(model => model.InizioPeriodoSoggiorno)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.FinePeriodoSoggiorno)
+    @Html.EditorFor(model => model.FinePeriodoSoggiorno, new { htmlAttributes = new { @type = "date" } })
+    @Html.ValidationMessageFor(model => model.FinePeriodoSoggiorno)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Anno)
+    @Html.EditorFor(model => model.Anno)
+    @Html.ValidationMessageFor(model => model.Anno)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Caparra)
+    @Html.EditorFor(model => model.Caparra)
+    @Html.ValidationMessageFor(model => model.Caparra)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Tariffa)
+    @Html.EditorFor(model => model.Tariffa)
+    @Html.ValidationMessageFor(model => model.Tariffa)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.TipoDiSoggiorno)
+    <select name="TipoSoggiorno">
+        <option value="Mezza pensione">Mezza pensione</option>
+        <option value="Pensione completa">Pensione completa</option>
+        <option value="Pernotto e colazione">Pernottamento e colazione</option>
+    </select>
+    @Html.ValidationMessageFor(model => model.TipoDiSoggiorno)
+    <br>
+    <br>
+    <button class="btn btn-success">Aggiungi prenotazione</button>
+}

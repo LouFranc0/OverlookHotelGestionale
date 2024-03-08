@@ -1,0 +1,46 @@
+﻿@model OverlookHotelGestionale.Models.Servizio
+@{
+    ViewBag.Title = "NuovoServizio";
+}
+
+<h2>Aggiungi servizi ad un cliente prenotato</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.TipoServizio)
+    <select name="TipoServizio">
+        <option value="Colazione in camera">Colazione in camera</option>
+        <option value="Letto aggiuntivo">Letto aggiuntivo</option>
+        <option value="Culla">Culla</option>
+    </select>
+    @Html.ValidationMessageFor(model => model.TipoServizio)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.DataServizio)
+    @Html.EditorFor(model => model.DataServizio, new { htmlAttributes = new { @type = "date" } })
+    @Html.ValidationMessageFor(model => model.DataServizio)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Quantita)
+    @Html.EditorFor(model => model.Quantita)
+    @Html.ValidationMessageFor(model => model.Quantita)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Prezzo)
+    @Html.EditorFor(model => model.Prezzo)
+    @Html.ValidationMessageFor(model => model.Prezzo)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.IdPrenotazione)
+    <select name="IdPrenotazione">
+        @foreach (var prenotazione in ViewBag.listaPrenotati)
+        {
+            <option value="@prenotazione.IdPrenotazione">@prenotazione.Cognome @prenotazione.Nome</option>
+
+        }
+    </select>
+    @Html.ValidationMessageFor(model => model.IdPrenotazione)
+    <br>
+    <br>
+    <button class="btn btn-success">Aggiungi prenotazione</button>
+}
